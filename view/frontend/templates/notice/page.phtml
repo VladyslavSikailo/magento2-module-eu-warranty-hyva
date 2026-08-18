@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use RunAsRoot\EuWarranty\Block\Notice;
+
+/** @var Notice $block */
+/** @var ViewModelRegistry $viewModels */
+
+$notice = $block->getNotice();
+
+if ($notice === null) {
+    return '';
+}
+
+/** @var HeroiconsOutline $heroicons */
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+?>
+<div class="container mx-auto px-0 py-4 max-w-3xl text-center">
+    <img
+        src="<?= $block->escapeUrl($notice->getFrontendAssetUrl()) ?>"
+        alt="<?= $block->escapeHtmlAttr(__('EU legal guarantee notice')) ?>"
+        class="max-w-full max-h-[85vh] w-auto h-auto mx-auto mb-6 border border-black bg-white"
+    />
+    <a
+        href="<?= $block->escapeUrl($notice->getFullTextUrl()) ?>"
+        class="btn btn-primary inline-flex items-center gap-2"
+        target="_blank" rel="noopener noreferrer"
+    >
+        <?= $block->escapeHtml(__('Read the full legal guarantee information')) ?>
+        <?= /* @noEscape */ $heroicons->externalLinkHtml('w-4 h-4 shrink-0') ?>
+    </a>
+</div>
