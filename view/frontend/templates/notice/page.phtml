@@ -11,7 +11,7 @@ use RunAsRoot\EuWarranty\Block\Notice;
 
 $notice = $block->getNotice();
 
-if ($notice === null) {
+if (!$notice->isPageEnabled()) {
     return '';
 }
 
@@ -26,7 +26,7 @@ $heroicons = $viewModels->require(HeroiconsOutline::class);
     />
     <a
         href="<?= $block->escapeUrl($notice->getFullTextUrl()) ?>"
-        class="btn btn-primary inline-flex items-center gap-2"
+        class="inline-flex items-center gap-2 underline hover:no-underline"
         target="_blank" rel="noopener noreferrer"
     >
         <?= $block->escapeHtml(__('Read the full legal guarantee information')) ?>
