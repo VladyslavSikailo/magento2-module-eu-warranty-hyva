@@ -16,7 +16,6 @@ Everything else comes from the base module: configuration, the `/eu-warranty` ro
 
 ## Requirements
 
-- PHP `^8.1`
 - `run-as-root/module-eu-warranty`
 - `hyva-themes/magento2-theme-module`
 
