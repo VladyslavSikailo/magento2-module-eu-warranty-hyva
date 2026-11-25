@@ -14,18 +14,10 @@ The base module shows the official EU legal guarantee notice on the `/eu-warrant
 
 Everything else comes from the base module: configuration, the `/eu-warranty` route, the notice language setting and the order email integration. The email part doesn't depend on the theme, so this module doesn't touch it.
 
-## Requirements
-
-- `run-as-root/module-eu-warranty`
-- `hyva-themes/magento2-theme-module`
-
 ## Installation
 
 ```bash
 composer require run-as-root/module-eu-warranty-hyva
-bin/magento module:enable RunAsRoot_EuWarrantyHyva
-bin/magento setup:upgrade
-bin/magento cache:flush
 ```
 
 No configuration is needed. Configure the notice in the base module under **Stores > Configuration > General > EU Warranty Information**. See the base module's README for details.
